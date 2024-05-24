@@ -1,0 +1,8 @@
+# Ignore .secrets directory
+.secrets/
+
+# Ignore .env file
+.env
+
+# Ignore any directory named archive
+archive/
