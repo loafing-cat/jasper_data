@@ -6,3 +6,4 @@
 
 # Ignore any directory named archive
 archive/
+.Rproj.user

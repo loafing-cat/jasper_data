@@ -90,7 +90,7 @@ results <- results %>%
 date_for_export <- format(as.Date(formatted_date), "%Y_%m_%d")
 
 # write data to .Rdata file; append date of results to end of file name
-export(results, here("output_data", paste0("cbc_chem_", date_for_export, ".Rdata")))
+export(results, here("output data", paste0("cbc_chem_", date_for_export, ".Rdata")))
 
 # write data to csv file; append date of results to end of file name
-export(results, here("output_data", paste0("cbc_chem_", date_for_export, ".csv")), append = FALSE)
+export(results, here("output data", paste0("cbc_chem_", date_for_export, ".csv")), append = FALSE)
