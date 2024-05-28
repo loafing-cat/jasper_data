@@ -1,0 +1,35 @@
+metric,value,date_of_result,test
+RBC,5.27,2024-05-10,hematology
+Hematocrit,24.9,2024-05-10,hematology
+Hemoglobin,8.3,2024-05-10,hematology
+MCV,47.2,2024-05-10,hematology
+MCH,15.7,2024-05-10,hematology
+MCHC,33.3,2024-05-10,hematology
+RDW,17.9,2024-05-10,hematology
+% Reticulocytes,0.1,2024-05-10,hematology
+Reticulocytes,6.9,2024-05-10,hematology
+Reticulocyte,15.5,2024-05-10,hematology
+WBC,13.01,2024-05-10,hematology
+% Neutrophils,87,2024-05-10,hematology
+% Lymphocytes,8.5,2024-05-10,hematology
+% Monocytes,4.2,2024-05-10,hematology
+% Eosinophils,0.3,2024-05-10,hematology
+% Basophils,0,2024-05-10,hematology
+Neutrophils,11.33,2024-05-10,hematology
+Lymphocytes,1.1,2024-05-10,hematology
+Monocytes,0.54,2024-05-10,hematology
+Eosinophils,0.04,2024-05-10,hematology
+Basophils,0,2024-05-10,hematology
+Platelets,194,2024-05-10,hematology
+MPV,17.9,2024-05-10,hematology
+Plateletcrit,0.35,2024-05-10,hematology
+Glucose,131,2024-05-10,chemistry
+Creatinine,0.9,2024-05-10,chemistry
+BUN,16,2024-05-10,chemistry
+BUN: Creatinine Ratio,18,2024-05-10,chemistry
+Total Protein,7.2,2024-05-10,chemistry
+Albumin,2.4,2024-05-10,chemistry
+Globulin,4.8,2024-05-10,chemistry
+Albumin: Globulin Ratio,0.5,2024-05-10,chemistry
+ALT,75,2024-05-10,chemistry
+ALP,62,2024-05-10,chemistry
