@@ -93,7 +93,7 @@ p1 <- daily_weight %>%
   ) +
   geom_text(
     data = mean_weights,
-    aes(x = midpoint, y = 9.7, label = sprintf('Change: %.2f lbs', delta)),
+    aes(x = midpoint + 0.10 , y = 9.7, label = sprintf('Change: %.2f lbs', delta)),
     vjust = -0.5,
     color = 'black'
   ) +
