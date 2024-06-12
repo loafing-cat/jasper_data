@@ -7,3 +7,6 @@
 # Ignore any directory named archive
 archive/
 .Rproj.user
+
+# Ignore everything in input text data directory
+input\ text\ data/*

@@ -2,11 +2,11 @@
 rm(list = ls()); gc()
 
 # load necessary libraries
-pacman::p_load(tidyverse, pdftools, here, rio, lubridate)
+pacman::p_load(tidyverse, pdftools, here, rio, lubridate, data.table)
 
 # specify path to PDF file and read its content
-pdf_path <- here("input_text_data")
-raw_text <- pdf_text(here(pdf_path, "desert_ridge_test_results.pdf"))
+pdf_path <- here("input text data")
+raw_text <- pdf_text(here(pdf_path, "dessert_ridge_blood_chem_06_08_2024.pdf"))
 
 # extract all dates labeled 'date of result'; used to date when metrics reported
 dates_of_result <- str_extract_all(raw_text, "\\s*DATE OF RESULT:\\s*(\\d{1,2}/\\d{1,2}/\\d{2})")[[1]] %>% 
@@ -82,7 +82,7 @@ results <- results %>%
   mutate(
     metric = as.character(metric),
     value = as.numeric(value),
-    date_of_result = as.Date(date_of_result),
+    date_of_result = as.IDate(date_of_result),
     test = as.character(test)
   )
 
@@ -90,7 +90,43 @@ results <- results %>%
 date_for_export <- format(as.Date(formatted_date), "%Y_%m_%d")
 
 # write data to .Rdata file; append date of results to end of file name
-export(results, here("output data", paste0("cbc_chem_", date_for_export, ".Rdata")))
+# export(results, here("output data", paste0("cbc_chem_", date_for_export, ".Rdata")))
 
 # write data to csv file; append date of results to end of file name
-export(results, here("output data", paste0("cbc_chem_", date_for_export, ".csv")), append = FALSE)
+# export(results, here("output data", paste0("cbc_chem_", date_for_export, ".csv")), append = FALSE)
+
+# do some clean up and data management
+date_updated <- format(as.Date(Sys.Date()), "%Y_%m_%d")
+
+# add an updated date column
+date_updated_col <- format(as.Date(Sys.Date()))
+
+old_data <- import(here("output data", "cbc_chem_2024_05_10.csv"))
+
+export(old_data, here("output data", "cbc_chem_updated.csv"), row.names = FALSE, col.names = TRUE)
+
+# export(old_data, here("output data", paste0("cbc_chem_updated_", date_updated, ".csv")), row.names = FALSE, col.names = TRUE)
+
+# need to load in old csv file with pattern `cbc_chem_updated_` and then append data from the `results` dataframe to it and then overwrite the loaded file
+
+## need to continuously update file containing all of the hematology and chemistry data: file will be labeled with pattern `cbc_chem_updated_*`
+# if said file exists in directory, assign to `file_name` which will be used in an if/else
+file_name <- list.files(
+  path = here("output data"),
+  pattern = "cbc_chem_updated_.*\\.csv",
+  full.names = TRUE
+)
+
+# there should only be one file that captures all of the hematology/chemistry updates over time; if length is 1 do the following:
+if (length(file_name) == 1) {
+  # import it
+  old_data <- import(file_name)
+  # add new data stored in `results` below the last data placed into file
+  updated_data <- bind_rows(old_data, results) %>% 
+    mutate(date_updated = as.IDate(date_updated_col))
+  # then then overwrite the file
+  export(updated_data, file_name)
+} else {
+  # otherwise throw the following error message
+  message("Error: The file expected to be updated was not found!")
+}
