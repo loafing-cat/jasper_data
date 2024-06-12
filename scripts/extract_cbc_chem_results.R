@@ -101,32 +101,32 @@ date_updated <- format(as.Date(Sys.Date()), "%Y_%m_%d")
 # add an updated date column
 date_updated_col <- format(as.Date(Sys.Date()))
 
-old_data <- import(here("output data", "cbc_chem_2024_05_10.csv"))
+# old_data <- import(here("output data", "cbc_chem_2024_05_10.csv"))
 
-export(old_data, here("output data", "cbc_chem_updated.csv"), row.names = FALSE, col.names = TRUE)
+# export(old_data, here("output data", "cbc_chem_updated.csv"), row.names = FALSE, col.names = TRUE)
 
 # export(old_data, here("output data", paste0("cbc_chem_updated_", date_updated, ".csv")), row.names = FALSE, col.names = TRUE)
 
 # need to load in old csv file with pattern `cbc_chem_updated_` and then append data from the `results` dataframe to it and then overwrite the loaded file
 
-## need to continuously update file containing all of the hematology and chemistry data: file will be labeled with pattern `cbc_chem_updated_*`
-# if said file exists in directory, assign to `file_name` which will be used in an if/else
+# continuously update file containing all hematology and chemistry data
+# file should following the naming pattern `cbc_chem_updated` in the 'output data' directory
 file_name <- list.files(
   path = here("output data"),
-  pattern = "cbc_chem_updated_.*\\.csv",
+  pattern = "cbc_chem_updated.*\\.csv",
   full.names = TRUE
 )
 
-# there should only be one file that captures all of the hematology/chemistry updates over time; if length is 1 do the following:
+# make sure there exists only one file that captures all updates; excute the following if condition is met
 if (length(file_name) == 1) {
-  # import it
+  # load data from the file
   old_data <- import(file_name)
-  # add new data stored in `results` below the last data placed into file
+  # append new data from the `results` dataframe to the existing data
   updated_data <- bind_rows(old_data, results) %>% 
     mutate(date_updated = as.IDate(date_updated_col))
-  # then then overwrite the file
+  # overwrite the existing file with the updated data
   export(updated_data, file_name)
 } else {
-  # otherwise throw the following error message
+  # if the file is not found, or there are possible duplicates, throw an error
   message("Error: The file expected to be updated was not found!")
 }
