@@ -2,7 +2,7 @@
 rm(list = ls()); gc()
 
 # load or install necessary libraries
-pacman::p_load(tidyverse, rio, here, googlesheets4, ggsci, lubridate, dotenv, viridis, PupillometryR)
+pacman::p_load(tidyverse, rio, here, googlesheets4, ggsci, lubridate, dotenv, PupillometryR, zoo)
 
 # load .env file containing URL to Google Sheet (OPSEC)
 load_dot_env()
@@ -86,6 +86,20 @@ daily_weight %>%
   theme_minimal() +
   theme(legend.position = "none")
 
+# violin with dotplot
+daily_weight %>%
+  filter(Day %in% complete_weeks$Day) %>%
+  ggplot(aes(x = week, y = `Weight (lbs)`, group = week, fill = factor(week))) +
+  geom_violin(width = 1.4, color = "black") +
+  geom_boxplot(width = 0.1, color = "black", alpha = 0.2) +
+  # geom_point(position = position_jitter(width = 0.15), alpha = 0.8, size = 2) +
+  geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.35, fill = "black") +
+  # geom_jitter(color="black", size=0.7, alpha=0.5) +
+  scale_fill_manual(values = custom_colors) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+
 # rain cloud plot
 daily_weight %>%
   filter(Day %in% complete_weeks$Day) %>%
@@ -98,3 +112,49 @@ daily_weight %>%
   coord_flip() + 
   theme_minimal() +
   theme(legend.position = "none")
+
+
+
+# line --------------------------------------------------------------------
+
+p2 <- daily_weight %>% 
+  filter(Day > as.Date('2024-05-05') & !is.na(`Weight (lbs)`)) %>% # filter after May 5th, 2024 and exclude NAs
+  ggplot(aes(x = Day, y = `Weight (lbs)`)) +
+  geom_hline(aes(yintercept = 11), color = "red", linetype = "dashed", size = 1.5) +
+  geom_hline(aes(yintercept = (11 + 12) / 2), color = "orange", linetype = "dashed", size = 1.5) + # healthy weight between [11.25, 12] (lbs) add average of two intervals as reference line
+  geom_hline(aes(yintercept = 12), color = "green", linetype = "dashed", size = 1.5) +
+  geom_hline(aes(yintercept = 9), color = "red", linetype = "dashed", size = 1.5) +
+  geom_point(size = 2, color = "black") +
+  geom_line(size = 1.0, color = "black") +
+  geom_line(aes(y = rollmean(`Weight (lbs)`, 7, na.pad = TRUE)), color = "blue", linetype = "dashed", size = 0.7) +
+  labs(x = "Date",
+       y = "Weight (lbs)",
+       title = "Jasper's Daily Weight (lbs)",
+       subtitle = "Healthy Weight [11, 12]; 11.5 is average of the interval"
+  ) +
+  scale_y_continuous(expand = c(0, 0), limits = c(7, 15), 
+                     breaks = c(7, 8, 9, 10, 11, 11.5, 12, 13, 14, 15)) +
+  # scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
+  scale_x_date(date_breaks = "1 day", date_labels = "%m/%d/%Y") +
+  # scale_y_continuous(expand = c(0, 0), limits = c(5, 15), 
+  #                    breaks = c(5, 6, 7, 8, 9, 10, 11, 11.25, 11.5, 12, 13, 14, 15)) +
+  # scale_y_continuous(expand = c(0, 0), limits = c(0, 15), breaks = seq(0, 15, by = 1)) +
+  # theme_bw() +
+  # theme_ipsum() +
+  # theme_ipsum_pub() +
+  theme_clean() +
+  # theme_economist_white() +
+  # theme_calc() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p2
+
+# dynamically save ggplot
+ggsave(
+  filename = paste0(here("images", "line", "jasper_weight_daily_time_series_v11"), format(Sys.Date(), "_%Y_%m_%d"), ".png"),
+  plot = p2,
+  dpi = 600,
+  width = 12,
+  height = 8
+)
+
