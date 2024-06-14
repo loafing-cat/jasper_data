@@ -80,7 +80,7 @@ daily_weight %>%
   ggplot(aes(x = week, y = `Weight (lbs)`, group = week, fill = factor(week))) +
   geom_violin(width = 1.4) +
   geom_boxplot(width = 0.1, color = "black", alpha = 0.2) +
-  geom_point(position = position_jitter(width = 0.15), alpha = 0.8, size = 1.5) +
+  geom_point(position = position_jitter(width = 0.15), alpha = 0.8, size = 2) +
   # geom_jitter(color="black", size=0.7, alpha=0.5) +
   scale_fill_manual(values = custom_colors) +
   theme_minimal() +
@@ -92,7 +92,7 @@ daily_weight %>%
   ggplot(aes(x = week, y = `Weight (lbs)`, group = week, fill = factor(week))) +
   geom_flat_violin(position = position_nudge(x = .2, y = 0), adjust = 2) +
   geom_boxplot(position = position_nudge(x = -0.15), width = 0.1, color = "black", alpha = 0.2) +
-  geom_point(position = position_jitter(width = .15), size = 1.0, alpha = 0.8, color = "black") +
+  geom_point(position = position_jitter(width = 0.05), size = 1.5, alpha = 0.8, color = "black") +
   # geom_jitter(color="black", size=0.7, alpha=0.5) +
   scale_fill_manual(values = custom_colors) +
   coord_flip() + 

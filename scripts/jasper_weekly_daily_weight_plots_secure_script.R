@@ -251,3 +251,6 @@ file.remove(parent_files)
 
 # apply function to move most recent image for each variant to parent at once
 map(directories, move_most_recent_file)
+
+# update the images README file
+source(here("scripts", "update_images_readme.R"))
