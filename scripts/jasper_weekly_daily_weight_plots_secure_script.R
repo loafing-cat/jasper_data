@@ -68,7 +68,6 @@ mean_weights <- mean_weight %>%
     midpoint = (week + week_next) / 2 # used to plot the delta every 0.5 weeks on the main plot
     )
 
-
 # creating ggplots --------------------------------------------------------
 
 # time-series of weekly averages
@@ -121,25 +120,23 @@ ggsave(
 p2 <- daily_weight %>% 
   filter(Day > as.Date('2024-05-05') & !is.na(`Weight (lbs)`)) %>% # filter after May 5th, 2024 and exclude NAs
   ggplot(aes(x = Day, y = `Weight (lbs)`)) +
-  geom_point(size = 2) +
-  geom_line() +
   geom_hline(aes(yintercept = 11), color = "red", linetype = "dashed", size = 1.5) +
   geom_hline(aes(yintercept = (11 + 12) / 2), color = "orange", linetype = "dashed", size = 1.5) + # healthy weight between [11.25, 12] (lbs) add average of two intervals as reference line
   geom_hline(aes(yintercept = 12), color = "green", linetype = "dashed", size = 1.5) +
   geom_hline(aes(yintercept = 9), color = "red", linetype = "dashed", size = 1.5) +
+  geom_point(size = 2, color = "black") +
+  geom_line(size = 1.0, color = "black") +
+  geom_line(aes(y = rollmean(`Weight (lbs)`, 7, na.pad = TRUE)), color = "blue", linetype = "dashed", size = 0.7) +
   labs(x = "Date",
        y = "Weight (lbs)",
        title = "Jasper's Daily Weight (lbs)",
        subtitle = "Healthy Weight [11, 12]; 11.5 is average of the interval"
-       ) +
+  ) +
   scale_y_continuous(expand = c(0, 0), limits = c(7, 15), 
                      breaks = c(7, 8, 9, 10, 11, 11.5, 12, 13, 14, 15)) +
   # scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
   scale_x_date(date_breaks = "1 day", date_labels = "%m/%d/%Y") +
-  # scale_y_continuous(expand = c(0, 0), limits = c(5, 15), 
-  #                    breaks = c(5, 6, 7, 8, 9, 10, 11, 11.25, 11.5, 12, 13, 14, 15)) +
-  # scale_y_continuous(expand = c(0, 0), limits = c(0, 15), breaks = seq(0, 15, by = 1)) +
-  theme_bw() +
+  theme_clean() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 p2
@@ -158,27 +155,46 @@ ggsave(
 npg_palette_alpha_0.7 <- c("#E64B35B2", "#4DBBD5B2", "#00A087B2", "#3C5488B2", "#F39B7FB2", "#8491B4B2", "#91D1C2B2", "#DC0000B2", "#7E6148B2")
 npg_palette_alpha_1 <-  c("#E64B35FF", "#4DBBD5FF", "#00A087FF", "#3C5488FF", "#F39B7FFF", "#8491B4FF", "#91D1C2FF", "#DC0000FF", "#7E6148FF")
 
-custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#3C5488FF", "#8491B4B2", "#7E6148FF", "#DC0000B2")
+custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#7fc8ff", "#8491B4B2","#d3860e", "#DC0000B2")
 
-p3 <- daily_weight %>% 
+
+###
+# violin with dotplot
+p3 <- daily_weight %>%
   filter(Day %in% complete_weeks$Day) %>%  # filter origin data to only where complete week data available
   group_by(week) %>% 
   mutate(mean_weight = mean(`Weight (lbs)`, na.rm = TRUE), # compute mean/median weight to add to boxplots
-         median_weight = median(`Weight (lbs)`, na.rm = TRUE)) %>% 
-  ggplot(aes(x = week, y = `Weight (lbs)`, group = week)) +
+         median_weight = median(`Weight (lbs)`, na.rm = TRUE),
+         max_weight = max(`Weight (lbs)`, na.rm = TRUE)  # calculate max weight per week
+  ) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = week, y = `Weight (lbs)`, group = week, fill = factor(week))) +
   geom_violin(aes(x = week, y = `Weight (lbs)`, fill = factor(week))) +
-  geom_point(aes(x = week, y = mean_weight), color = 'red', size = 3) +
-  geom_line(aes(x = week, y = mean_weight, group = 1)) + # line connecting the mean weight across boxes
+  geom_boxplot(width = 0.1, color = "black", alpha = 0.2) +
+  # geom_point(position = position_jitter(width = 0.15), alpha = 0.8, size = 2) +
+  geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.25, fill = "black") +
+  geom_point(aes(x = week, y = mean_weight), color = "red", size = 3) +
+  geom_line(aes(x = week, y = mean_weight, group = 1)) +
   geom_text(
-    aes(x = week, y = mean_weight, label = sprintf('Mean: %.2f lbs', mean_weight)),
-    vjust = 2.5,
+    aes(x = week, y = max_weight + 0.25, label = sprintf('Mean: %.2f lbs', mean_weight)),  # adjust y using max_weight
+    vjust = 1,
     color = 'red'
   ) +
   geom_text(
-    aes(x = week, y = median_weight, label = sprintf('Median: %.2f lbs', median_weight)),
-    vjust = -1.5,
+    aes(x = week, y = max_weight + 0.2, label = sprintf('Median: %.2f lbs', median_weight)),  # adjust y using max_weight
+    vjust = 1,
     color = 'blue'
   ) +
+  # geom_text(
+  #   aes(x = week, y = mean_weight, label = sprintf('Mean: %.2f lbs', mean_weight)),
+  #   vjust = 2.5,
+  #   color = 'red'
+  # ) +
+  # geom_text(
+  #   aes(x = week, y = median_weight, label = sprintf('Median: %.2f lbs', median_weight)),
+  #   vjust = -1.5,
+  #   color = 'blue'
+  # ) +
   geom_text(
     data = mean_weights,
     aes(x = midpoint, y = 9.7, label = sprintf('Change: %.2f lbs', delta)),
@@ -189,14 +205,53 @@ p3 <- daily_weight %>%
        y = 'Weight (lbs)',
        title = "Jasper's Weight (lbs) Distribution",
        subtitle = paste0(format(min(complete_weeks$Day), "%m/%d/%Y"), ' - ' , format(max(complete_weeks$Day), "%m/%d/%Y"))
-       ) +
+  ) +
   scale_fill_manual(values = custom_colors) +
-  # scale_y_continuous(expand = c(0, 0), limits = c(7, 13)) +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = length(unique(complete_weeks$week)))) +
+  # theme_minimal() +
   theme_bw() +
+  # theme_clean() +
   theme(legend.position = "none")
 
 p3
+
+## OLD p3 version
+# p3 <- daily_weight %>% 
+#   filter(Day %in% complete_weeks$Day) %>%  # filter origin data to only where complete week data available
+#   group_by(week) %>% 
+#   mutate(mean_weight = mean(`Weight (lbs)`, na.rm = TRUE), # compute mean/median weight to add to boxplots
+#          median_weight = median(`Weight (lbs)`, na.rm = TRUE)) %>% 
+#   ggplot(aes(x = week, y = `Weight (lbs)`, group = week)) +
+#   geom_violin(aes(x = week, y = `Weight (lbs)`, fill = factor(week))) +
+#   geom_point(aes(x = week, y = mean_weight), color = 'red', size = 3) +
+#   geom_line(aes(x = week, y = mean_weight, group = 1)) + # line connecting the mean weight across boxes
+#   geom_text(
+#     aes(x = week, y = mean_weight, label = sprintf('Mean: %.2f lbs', mean_weight)),
+#     vjust = 2.5,
+#     color = 'red'
+#   ) +
+#   geom_text(
+#     aes(x = week, y = median_weight, label = sprintf('Median: %.2f lbs', median_weight)),
+#     vjust = -1.5,
+#     color = 'blue'
+#   ) +
+#   geom_text(
+#     data = mean_weights,
+#     aes(x = midpoint, y = 9.7, label = sprintf('Change: %.2f lbs', delta)),
+#     vjust = -0.5,
+#     color = 'black'
+#   ) +
+#   labs(x = 'Week',
+#        y = 'Weight (lbs)',
+#        title = "Jasper's Weight (lbs) Distribution",
+#        subtitle = paste0(format(min(complete_weeks$Day), "%m/%d/%Y"), ' - ' , format(max(complete_weeks$Day), "%m/%d/%Y"))
+#        ) +
+#   scale_fill_manual(values = custom_colors) +
+#   # scale_y_continuous(expand = c(0, 0), limits = c(7, 13)) +
+#   scale_x_continuous(breaks = scales::pretty_breaks(n = length(unique(complete_weeks$week)))) +
+#   theme_bw() +
+#   theme(legend.position = "none")
+# 
+# p3
 
 # dynamically save ggplot
 ggsave(
@@ -207,6 +262,11 @@ ggsave(
   height = 8
 )
 
+
+
+
+
+###
 # pull out the most recent plots for each variant and place it into images directory
 boxplot_directory <- here("images", "boxplot")
 line_directory <- here("images", "line")

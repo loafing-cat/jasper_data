@@ -2,7 +2,7 @@
 rm(list = ls()); gc()
 
 # load or install necessary libraries
-pacman::p_load(tidyverse, rio, here, googlesheets4, ggsci, lubridate, dotenv, PupillometryR, zoo)
+pacman::p_load(tidyverse, rio, here, googlesheets4, ggsci, lubridate, dotenv, PupillometryR, zoo, ggthemes)
 
 # load .env file containing URL to Google Sheet (OPSEC)
 load_dot_env()
@@ -72,7 +72,7 @@ mean_weights <- mean_weight %>%
 npg_palette_alpha_0.7 <- c("#E64B35B2", "#4DBBD5B2", "#00A087B2", "#3C5488B2", "#F39B7FB2", "#8491B4B2", "#91D1C2B2", "#DC0000B2", "#7E6148B2")
 npg_palette_alpha_1 <-  c("#E64B35FF", "#4DBBD5FF", "#00A087FF", "#3C5488FF", "#F39B7FFF", "#8491B4FF", "#91D1C2FF", "#DC0000FF", "#7E6148FF")
 
-custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#93b3fc", "#8491B4B2", "#7E6148FF", "#DC0000B2")
+custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#93b3fc", "#8491B4B2", "#d3860e", "#DC0000B2")
 
 # violin with boxplot
 daily_weight %>%
@@ -93,10 +93,11 @@ daily_weight %>%
   geom_violin(width = 1.4, color = "black") +
   geom_boxplot(width = 0.1, color = "black", alpha = 0.2) +
   # geom_point(position = position_jitter(width = 0.15), alpha = 0.8, size = 2) +
-  geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.35, fill = "black") +
+  geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.25, fill = "black") +
   # geom_jitter(color="black", size=0.7, alpha=0.5) +
   scale_fill_manual(values = custom_colors) +
-  theme_minimal() +
+  # theme_minimal() +
+  theme_clean() +
   theme(legend.position = "none")
 
 
@@ -148,6 +149,7 @@ p2 <- daily_weight %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 p2
+
 
 # dynamically save ggplot
 ggsave(
