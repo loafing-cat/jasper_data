@@ -207,7 +207,7 @@ p3 <- daily_weight %>%
        subtitle = paste0(format(min(complete_weeks$Day), "%m/%d/%Y"), ' - ' , format(max(complete_weeks$Day), "%m/%d/%Y"))
   ) +
   scale_fill_manual(values = custom_colors) +
-  scale_y_continuous(expand = c(0, 0), n.breaks = 10) +
+  scale_y_continuous(expand = c(0, 0), n.breaks = 8) +
   scale_x_continuous(breaks = scales::pretty_breaks(n = length(unique(complete_weeks$week)))) +
   # theme_minimal() +
   theme_bw() +
