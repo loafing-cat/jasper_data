@@ -2,7 +2,7 @@
 rm(list = ls()); gc()
 
 # load or install necessary libraries
-pacman::p_load(tidyverse, rio, here, googlesheets4, ggsci, lubridate, dotenv)
+pacman::p_load(tidyverse, rio, here, googlesheets4, ggsci, lubridate, dotenv, ggthemes, zoo)
 
 # load .env file containing URL to Google Sheet (OPSEC)
 load_dot_env()
@@ -155,7 +155,7 @@ ggsave(
 npg_palette_alpha_0.7 <- c("#E64B35B2", "#4DBBD5B2", "#00A087B2", "#3C5488B2", "#F39B7FB2", "#8491B4B2", "#91D1C2B2", "#DC0000B2", "#7E6148B2")
 npg_palette_alpha_1 <-  c("#E64B35FF", "#4DBBD5FF", "#00A087FF", "#3C5488FF", "#F39B7FFF", "#8491B4FF", "#91D1C2FF", "#DC0000FF", "#7E6148FF")
 
-custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#7fc8ff", "#8491B4B2","#d3860e", "#DC0000B2")
+custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#7fc8ff", "#8491B4B2","#d3860e", "#ffd145")
 
 
 ###
