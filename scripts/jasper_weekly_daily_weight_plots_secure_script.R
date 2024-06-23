@@ -181,7 +181,7 @@ p3 <- daily_weight %>%
     color = 'red'
   ) +
   geom_text(
-    aes(x = week, y = max_weight + 0.2, label = sprintf('Median: %.2f lbs', median_weight)),  # adjust y using max_weight
+    aes(x = week, y = max_weight + 0.15, label = sprintf('Median: %.2f lbs', median_weight)),  # adjust y using max_weight
     vjust = 1,
     color = 'blue'
   ) +
@@ -207,6 +207,7 @@ p3 <- daily_weight %>%
        subtitle = paste0(format(min(complete_weeks$Day), "%m/%d/%Y"), ' - ' , format(max(complete_weeks$Day), "%m/%d/%Y"))
   ) +
   scale_fill_manual(values = custom_colors) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = length(unique(complete_weeks$week)))) +
   # theme_minimal() +
   theme_bw() +
   # theme_clean() +
@@ -314,3 +315,4 @@ map(directories, move_most_recent_file)
 
 # update the images README file
 source(here("scripts", "update_images_readme.R"))
+
