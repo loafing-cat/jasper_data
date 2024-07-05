@@ -1,0 +1,52 @@
+metric,value,date_of_result,test
+RBC,6.75,4/26/2024,hematology
+Hematocrit,32,4/26/2024,hematology
+Hemoglobin,10.9,4/26/2024,hematology
+MCV,47,4/26/2024,hematology
+MCH,16.1,4/26/2024,hematology
+MCHC,34.1,4/26/2024,hematology
+% Reticulocytes,0.1,4/26/2024,hematology
+Reticulocytes,7,4/26/2024,hematology
+Reticulocyte Hemoglobin,16.5,4/26/2024,hematology
+WBC,14.2,4/26/2024,hematology
+% Neutrophils,83.4,4/26/2024,hematology
+% Lymphocytes,12.6,4/26/2024,hematology
+% Monocytes,2.1,4/26/2024,hematology
+% Eosinophils,1.8,4/26/2024,hematology
+% Basophils,0.1,4/26/2024,hematology
+Neutrophils,11.843,4/26/2024,hematology
+Lymphocytes,1.789,4/26/2024,hematology
+Monocytes,0.298,4/26/2024,hematology
+Eosinophils,0.256,4/26/2024,hematology
+Basophils,0.014,4/26/2024,hematology
+Platelets,95,4/26/2024,hematology
+Glucose,71,4/26/2024,chemistry
+IDEXX SDMA,9,4/26/2024,chemistry
+Creatinine,1.1,4/26/2024,chemistry
+BUN,17,4/26/2024,chemistry
+BUN: Creatinine Ratio,15.5,4/26/2024,chemistry
+Phosphorus,4,4/26/2024,chemistry
+Calcium,8.1,4/26/2024,chemistry
+Sodium,148,4/26/2024,chemistry
+Potassium,4.2,4/26/2024,chemistry
+Na: K Ratio,35,4/26/2024,chemistry
+Chloride,118,4/26/2024,chemistry
+TCO2 (Bicarbonate),21,4/26/2024,chemistry
+Anion Gap,13,4/26/2024,chemistry
+Total Protein,8.5,4/26/2024,chemistry
+Albumin,2,4/26/2024,chemistry
+Globulin,6.5,4/26/2024,chemistry
+Albumin: Globulin Ratio,0.3,4/26/2024,chemistry
+ALT,61,4/26/2024,chemistry
+AST,79,4/26/2024,chemistry
+ALP,23,4/26/2024,chemistry
+GGT,1,4/26/2024,chemistry
+Bilirubin - Total,0.2,4/26/2024,chemistry
+Bilirubin - Unconjugated,0.1,4/26/2024,chemistry
+Bilirubin - Conjugated,0.1,4/26/2024,chemistry
+Cholesterol,125,4/26/2024,chemistry
+Creatine Kinase,1244,4/26/2024,chemistry
+Hemolysis Index,N,4/26/2024,chemistry
+Lipemia Index,1+,4/26/2024,chemistry
+Spec fPL,0.8,4/26/2024,chemistry
+Cardiopet proBNP (Feline),831,4/26/2024,chemistry

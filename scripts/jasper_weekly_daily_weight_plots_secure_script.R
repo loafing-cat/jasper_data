@@ -31,6 +31,14 @@ daily_weight <- read_sheet(
 
 # data prep ---------------------------------------------------------------
 
+# extract last day for each week
+weeks <- daily_weight %>% 
+  group_by(Week) %>% 
+  arrange(desc(Day)) %>% 
+  slice(1) %>% 
+  mutate(Day = as.Date(Day)) %>% 
+  filter(Week != 0)
+
 # convert the `Day` column in spreadsheet to a Date type
 daily_weight$Day <- as.Date(daily_weight$Day)
 
@@ -39,7 +47,11 @@ baseline_data <- as.Date("2024-05-06")
 
 # week numbers used to track Jasper's weight throughout the 84 (12-week) GS-441524 protocol
 daily_weight <- daily_weight %>% 
-  mutate(week = (week(Day) - week(baseline_data) + 1))
+  mutate(week = (week(Day) - week(baseline_data) + 1),
+         is_week_max_date = case_when(
+           Day %in% weeks$Day ~ "Y",
+           TRUE ~ "N"
+         ))
 
 # correct weeks for dates before the baseline (i.e., week = 0 prior to May 6th, 2024); using base R
 daily_weight$week[daily_weight$Day < baseline_data] <- 0
@@ -124,20 +136,29 @@ p2 <- daily_weight %>%
   geom_hline(aes(yintercept = (11 + 12) / 2), color = "orange", linetype = "dashed", size = 1.5) + # healthy weight between [11.25, 12] (lbs) add average of two intervals as reference line
   geom_hline(aes(yintercept = 12), color = "green", linetype = "dashed", size = 1.5) +
   geom_hline(aes(yintercept = 9), color = "red", linetype = "dashed", size = 1.5) +
+  # geom_vline(data = weeks, aes(xintercept = Day), linetype = "dashed", color = "lightgrey") +
   geom_point(size = 2, color = "black") +
   geom_line(size = 1.0, color = "black") +
   geom_line(aes(y = rollmean(`Weight (lbs)`, 7, na.pad = TRUE)), color = "blue", linetype = "dashed", size = 0.7) +
+  geom_point(aes(color = factor(is_week_max_date)), size = 2) +
+  geom_text(data = subset(daily_weight, Day == as.Date("2024-05-12")), 
+            aes(label = "Red dots indicates end of week", x = Day - 2, y = `Weight (lbs)` + 0.5), size = 3, vjust = 0) +
+  geom_segment(data = subset(daily_weight, Day == as.Date("2024-05-12")), 
+               aes(xend = Day - 1, yend = `Weight (lbs)`, x = Day - 4, y = `Weight (lbs)` + 0.4),
+               arrow = arrow(type = "closed", length = unit(0.1, "inches"), ends = "last"), color = "black") +
   labs(x = "Date",
        y = "Weight (lbs)",
        title = "Jasper's Daily Weight (lbs)",
        subtitle = "Healthy Weight [11, 12]; 11.5 is average of the interval"
   ) +
+  scale_colour_manual(values = c("Y" = "red", "N" = "black")) +
   scale_y_continuous(expand = c(0, 0), limits = c(7, 15), 
                      breaks = c(7, 8, 9, 10, 11, 11.5, 12, 13, 14, 15)) +
   # scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
   scale_x_date(date_breaks = "1 day", date_labels = "%m/%d/%Y") +
   theme_clean() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "none")
 
 p2
 
@@ -199,7 +220,8 @@ p3 <- daily_weight %>%
     data = mean_weights,
     aes(x = midpoint, y = 9.7, label = sprintf('Change: %.2f lbs', delta)),
     vjust = -0.5,
-    color = 'black'
+    color = 'black',
+    size = 3
   ) +
   labs(x = 'Week',
        y = 'Weight (lbs)',

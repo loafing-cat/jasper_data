@@ -1,0 +1,29 @@
+biomarkers,min,max,reference_interval,units
+RBC,7.12,11.46,7.12 - 11.46,M/킠
+Hematocrit,28.2,52.7,28.2 - 52.7,%
+Hemoglobin,10.3,16.2,10.3 - 16.2,g/dL
+MCV,39,56,39 - 56,fL
+MCH,12.6,16.5,12.6 - 16.5,pg
+MCHC,28.5,37.8,28.5 - 37.8,g/dL
+Reticulocytes,3,50,Mar-50,K/킠
+Reticulocyte Hemoglobin,15.3,22.9,15.3 - 22.9,pg
+WBC,3.9,19,3.9 - 19.0,K/킠
+Neutrophils,2.62,15.17,2.62 - 15.17,K/킠
+Lymphocytes,0.85,5.85,0.85 - 5.85,K/킠
+Monocytes,0.04,0.53,0.04 - 0.53,K/킠
+Eosinophils,0.09,2.18,0.09 - 2.18,K/킠
+Basophils,0,0.1,0 - 0.1,K/킠
+Platelets,155,641,155 - 641,K/킠
+Glucose,72,175,72 - 175,mg/dL
+SDMA,0,14,0 - 14,킽/dL
+Creatinine,0.9,2.3,0.9 - 2.3,mg/dL
+BUN,16,37,16 - 37,mg/dL
+Sodium,147,157,147 - 157,mmol/L
+Potassium,3.7,5.2,3.7 - 5.2,mmol/L
+Chloride,114,126,114 - 126,mmol/L
+Total Protein,6.3,8.8,6.3 - 8.8,g/dL
+Albumin,2.6,3.9,2.6 - 3.9,g/dL
+Globulin,3,5.9,3.0 - 5.9,g/dL
+Albumin: Globulin Ratio,0.5,1.2,0.5 - 1.2,
+ALT,27,158,27 - 158,U/L
+ALP,12,59,Dec-59,U/L
