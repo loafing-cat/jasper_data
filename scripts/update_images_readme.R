@@ -8,7 +8,9 @@ image_dir <- here("images")
 # images that I update weekly; needs to be dynamically placed into a READ.md file
 patterns <- c("jasper_mean_weight_violin_weekly_time_series_.*\\.png",
               "jasper_weight_daily_time_series_.*\\.png",
-              "jasper_mean_weight_weekly_time_series_.*\\.png")
+              # "jasper_mean_weight_weekly_time_series_.*\\.png"
+              "biomarkers_graph_.*\\.png"
+              )
 
 # define function that grabs the most recent images for each type that exists (pattern defined above)
 get_most_recent_file <- function(pattern) {

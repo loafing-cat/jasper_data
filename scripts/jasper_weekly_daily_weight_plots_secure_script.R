@@ -295,8 +295,9 @@ ggsave(
 boxplot_directory <- here("images", "boxplot")
 line_directory <- here("images", "line")
 violin_directory <- here("images", "violin")
+biomarkers_directory <- here("images", "biomarkers")
 
-directories <- list(boxplot_directory, line_directory, violin_directory)
+directories <- list(boxplot_directory, line_directory, violin_directory, biomarkers_directory)
 
 parent_directory <- here("images")
 
@@ -338,4 +339,3 @@ map(directories, move_most_recent_file)
 
 # update the images README file
 source(here("scripts", "update_images_readme.R"))
-
