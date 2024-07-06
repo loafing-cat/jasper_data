@@ -142,9 +142,14 @@ p2 <- daily_weight %>%
   geom_line(aes(y = rollmean(`Weight (lbs)`, 7, na.pad = TRUE)), color = "blue", linetype = "dashed", size = 0.7) +
   geom_point(aes(color = factor(is_week_max_date)), size = 2) +
   geom_text(data = subset(daily_weight, Day == as.Date("2024-05-12")), 
-            aes(label = "Red dots indicates end of week", x = Day - 2, y = `Weight (lbs)` + 0.5), size = 3, vjust = 0) +
+            aes(label = "Red dots indicates end of week", x = Day - 3, y = `Weight (lbs)` + 0.5), size = 3, vjust = 0) +
   geom_segment(data = subset(daily_weight, Day == as.Date("2024-05-12")), 
                aes(xend = Day - 1, yend = `Weight (lbs)`, x = Day - 4, y = `Weight (lbs)` + 0.4),
+               arrow = arrow(type = "closed", length = unit(0.1, "inches"), ends = "last"), color = "black") +
+  geom_text(data = subset(daily_weight, Day == as.Date("2024-05-20")),
+            aes(label = "Period of stinky diarrheas due to antiviral :(", x = Day,  y = 10.65), size = 3, vjust = 0) +
+  geom_segment(data = subset(daily_weight, Day == as.Date("2024-05-20")),
+               aes(xend = Day, yend = `Weight (lbs)` + 0.50, x = Day, y = 10.55),
                arrow = arrow(type = "closed", length = unit(0.1, "inches"), ends = "last"), color = "black") +
   labs(x = "Date",
        y = "Weight (lbs)",
