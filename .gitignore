@@ -10,3 +10,8 @@ archive/
 
 # Ignore everything in input text data directory
 input\ text\ data/*
+
+# Ignore all png/jpg/jpeg files
+*.png
+*.jpg
+*.jpeg
