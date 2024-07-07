@@ -12,6 +12,6 @@ archive/
 input\ text\ data/*
 
 # Ignore all png/jpg/jpeg files
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
