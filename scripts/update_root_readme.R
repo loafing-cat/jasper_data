@@ -43,6 +43,8 @@ for (pattern in patterns) {
   }
 }
 
+markdown_lines <- c(markdown_lines, "![A cat playing with a ball of yarn](https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy-downsized.gif)")
+
 # indicate where the README file needs to be placed
 readme_placement <- file.path(root, "README.md")
 
