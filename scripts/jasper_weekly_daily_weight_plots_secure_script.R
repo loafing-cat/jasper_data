@@ -160,11 +160,11 @@ p2 <- daily_weight %>%
   scale_y_continuous(expand = c(0, 0), limits = c(7, 15), 
                      breaks = c(7, 8, 9, 10, 11, 11.5, 12, 13, 14, 15)) +
   # scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
-  scale_x_date(date_breaks = "4 days", date_labels = "%e %B %Y") +
+  scale_x_date(date_breaks = "4 days", date_labels = "%m/%d/%Y") +
   theme_clean() +
-  theme(legend.position = "none")
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),legend.position = "none")
 
-p2
+  p2
 
 
 # dynamically save ggplot
