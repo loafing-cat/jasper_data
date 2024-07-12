@@ -6,7 +6,7 @@ pacman::p_load(tidyverse, pdftools, here, rio, lubridate, data.table)
 
 # specify path to PDF file and read its content
 pdf_path <- here("input text data")
-raw_text <- pdf_text(here(pdf_path, "dessert_ridge_blood_chem_06_08_2024.pdf"))
+raw_text <- pdf_text(here(pdf_path, "dessert_ridge_blood_chem_07_08_2024.pdf"))
 
 # extract all dates labeled 'date of result'; used to date when metrics reported
 dates_of_result <- str_extract_all(raw_text, "\\s*DATE OF RESULT:\\s*(\\d{1,2}/\\d{1,2}/\\d{2})")[[1]] %>% 
@@ -82,7 +82,8 @@ results <- results %>%
   mutate(
     metric = as.character(metric),
     value = as.numeric(value),
-    date_of_result = as.IDate(date_of_result),
+    # date_of_result = as.IDate(date_of_result),
+    date_of_result = as.Date(date_of_result, format = "%Y-%m-%d"),
     test = as.character(test)
   )
 
@@ -121,6 +122,14 @@ file_name <- list.files(
 if (length(file_name) == 1) {
   # load data from the file
   old_data <- import(file_name)
+
+old_data <- old_data %>%
+  mutate(
+    metric = as.character(metric),
+    value = as.numeric(value),
+    date_of_result = as.Date(date_of_result, format = "%m/%d/%Y"),
+    test = as.character(test)
+  )
   # append new data from the `results` dataframe to the existing data
   updated_data <- bind_rows(old_data, results) %>% 
     mutate(date_updated = as.IDate(date_updated_col))

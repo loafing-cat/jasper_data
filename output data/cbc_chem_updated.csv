@@ -1,124 +1,156 @@
 metric,value,date_of_result,test,date_updated
-RBC,5.27,5/10/2024,hematology,6/11/2024
-Hematocrit,24.9,5/10/2024,hematology,6/11/2024
-Hemoglobin,8.3,5/10/2024,hematology,6/11/2024
-MCV,47.2,5/10/2024,hematology,6/11/2024
-MCH,15.7,5/10/2024,hematology,6/11/2024
-MCHC,33.3,5/10/2024,hematology,6/11/2024
-RDW,17.9,5/10/2024,hematology,6/11/2024
-% Reticulocytes,0.1,5/10/2024,hematology,6/11/2024
-Reticulocytes,6.9,5/10/2024,hematology,6/11/2024
-Reticulocyte,15.5,5/10/2024,hematology,6/11/2024
-WBC,13.01,5/10/2024,hematology,6/11/2024
-% Neutrophils,87,5/10/2024,hematology,6/11/2024
-% Lymphocytes,8.5,5/10/2024,hematology,6/11/2024
-% Monocytes,4.2,5/10/2024,hematology,6/11/2024
-% Eosinophils,0.3,5/10/2024,hematology,6/11/2024
-% Basophils,0,5/10/2024,hematology,6/11/2024
-Neutrophils,11.33,5/10/2024,hematology,6/11/2024
-Lymphocytes,1.1,5/10/2024,hematology,6/11/2024
-Monocytes,0.54,5/10/2024,hematology,6/11/2024
-Eosinophils,0.04,5/10/2024,hematology,6/11/2024
-Basophils,0,5/10/2024,hematology,6/11/2024
-Platelets,194,5/10/2024,hematology,6/11/2024
-MPV,17.9,5/10/2024,hematology,6/11/2024
-Plateletcrit,0.35,5/10/2024,hematology,6/11/2024
-Glucose,131,5/10/2024,chemistry,6/11/2024
-Creatinine,0.9,5/10/2024,chemistry,6/11/2024
-BUN,16,5/10/2024,chemistry,6/11/2024
-BUN: Creatinine Ratio,18,5/10/2024,chemistry,6/11/2024
-Total Protein,7.2,5/10/2024,chemistry,6/11/2024
-Albumin,2.4,5/10/2024,chemistry,6/11/2024
-Globulin,4.8,5/10/2024,chemistry,6/11/2024
-Albumin: Globulin Ratio,0.5,5/10/2024,chemistry,6/11/2024
-ALT,75,5/10/2024,chemistry,6/11/2024
-ALP,62,5/10/2024,chemistry,6/11/2024
-RBC,7.44,6/8/2024,hematology,6/11/2024
-Hematocrit,35.1,6/8/2024,hematology,6/11/2024
-Hemoglobin,11.4,6/8/2024,hematology,6/11/2024
-MCV,47,6/8/2024,hematology,6/11/2024
-MCH,15.3,6/8/2024,hematology,6/11/2024
-MCHC,32.5,6/8/2024,hematology,6/11/2024
-% Reticulocytes,0.1,6/8/2024,hematology,6/11/2024
-Reticulocytes,7,6/8/2024,hematology,6/11/2024
-Reticulocyte Hemoglobin,15.6,6/8/2024,hematology,6/11/2024
-WBC,16.5,6/8/2024,hematology,6/11/2024
-% Neutrophils,65.7,6/8/2024,hematology,6/11/2024
-% Lymphocytes,24,6/8/2024,hematology,6/11/2024
-% Monocytes,2.5,6/8/2024,hematology,6/11/2024
-% Eosinophils,6.8,6/8/2024,hematology,6/11/2024
-% Basophils,1,6/8/2024,hematology,6/11/2024
-Neutrophils,10.841,6/8/2024,hematology,6/11/2024
-Lymphocytes,3.96,6/8/2024,hematology,6/11/2024
-Monocytes,0.413,6/8/2024,hematology,6/11/2024
-Eosinophils,1.122,6/8/2024,hematology,6/11/2024
-Basophils,0.165,6/8/2024,hematology,6/11/2024
-Platelets,90,6/8/2024,hematology,6/11/2024
-Glucose,92,6/8/2024,chemistry,6/11/2024
-IDEXX SDMA,9,6/8/2024,chemistry,6/11/2024
-Creatinine,1.2,6/8/2024,chemistry,6/11/2024
-BUN,22,6/8/2024,chemistry,6/11/2024
-BUN: Creatinine Ratio,18.3,6/8/2024,chemistry,6/11/2024
-Sodium,150,6/8/2024,chemistry,6/11/2024
-Potassium,4.6,6/8/2024,chemistry,6/11/2024
-Na: K Ratio,33,6/8/2024,chemistry,6/11/2024
-Chloride,117,6/8/2024,chemistry,6/11/2024
-Total Protein,7.4,6/8/2024,chemistry,6/11/2024
-Albumin,2.5,6/8/2024,chemistry,6/11/2024
-Globulin,4.9,6/8/2024,chemistry,6/11/2024
-Albumin: Globulin Ratio,0.5,6/8/2024,chemistry,6/11/2024
-ALT,80,6/8/2024,chemistry,6/11/2024
-ALP,38,6/8/2024,chemistry,6/11/2024
-"b   Index of N,",1,6/8/2024,chemistry,6/11/2024
-"c   Index of N,",1,6/8/2024,chemistry,6/11/2024
-RBC,6.75,4/26/2024,hematology,6/11/2024
-Hematocrit,32,4/26/2024,hematology,6/11/2024
-Hemoglobin,10.9,4/26/2024,hematology,6/11/2024
-MCV,47,4/26/2024,hematology,6/11/2024
-MCH,16.1,4/26/2024,hematology,6/11/2024
-MCHC,34.1,4/26/2024,hematology,6/11/2024
-% Reticulocytes,0.1,4/26/2024,hematology,6/11/2024
-Reticulocytes,7,4/26/2024,hematology,6/11/2024
-Reticulocyte Hemoglobin,16.5,4/26/2024,hematology,6/11/2024
-WBC,14.2,4/26/2024,hematology,6/11/2024
-% Neutrophils,83.4,4/26/2024,hematology,6/11/2024
-% Lymphocytes,12.6,4/26/2024,hematology,6/11/2024
-% Monocytes,2.1,4/26/2024,hematology,6/11/2024
-% Eosinophils,1.8,4/26/2024,hematology,6/11/2024
-% Basophils,0.1,4/26/2024,hematology,6/11/2024
-Neutrophils,11.843,4/26/2024,hematology,6/11/2024
-Lymphocytes,1.789,4/26/2024,hematology,6/11/2024
-Monocytes,0.298,4/26/2024,hematology,6/11/2024
-Eosinophils,0.256,4/26/2024,hematology,6/11/2024
-Basophils,0.014,4/26/2024,hematology,6/11/2024
-Platelets,95,4/26/2024,hematology,6/11/2024
-Glucose,71,4/26/2024,chemistry,6/11/2024
-IDEXX SDMA,9,4/26/2024,chemistry,6/11/2024
-Creatinine,1.1,4/26/2024,chemistry,6/11/2024
-BUN,17,4/26/2024,chemistry,6/11/2024
-BUN: Creatinine Ratio,15.5,4/26/2024,chemistry,6/11/2024
-Phosphorus,4,4/26/2024,chemistry,6/11/2024
-Calcium,8.1,4/26/2024,chemistry,6/11/2024
-Sodium,148,4/26/2024,chemistry,6/11/2024
-Potassium,4.2,4/26/2024,chemistry,6/11/2024
-Na: K Ratio,35,4/26/2024,chemistry,6/11/2024
-Chloride,118,4/26/2024,chemistry,6/11/2024
-TCO2 (Bicarbonate),21,4/26/2024,chemistry,6/11/2024
-Anion Gap,13,4/26/2024,chemistry,6/11/2024
-Total Protein,8.5,4/26/2024,chemistry,6/11/2024
-Albumin,2,4/26/2024,chemistry,6/11/2024
-Globulin,6.5,4/26/2024,chemistry,6/11/2024
-Albumin: Globulin Ratio,0.3,4/26/2024,chemistry,6/11/2024
-ALT,61,4/26/2024,chemistry,6/11/2024
-AST,79,4/26/2024,chemistry,6/11/2024
-ALP,23,4/26/2024,chemistry,6/11/2024
-GGT,1,4/26/2024,chemistry,6/11/2024
-Bilirubin - Total,0.2,4/26/2024,chemistry,6/11/2024
-Bilirubin - Unconjugated,0.1,4/26/2024,chemistry,6/11/2024
-Bilirubin - Conjugated,0.1,4/26/2024,chemistry,6/11/2024
-Cholesterol,125,4/26/2024,chemistry,6/11/2024
-Creatine Kinase,1244,4/26/2024,chemistry,6/11/2024
-Hemolysis Index,N,4/26/2024,chemistry,6/11/2024
-Lipemia Index,1+,4/26/2024,chemistry,6/11/2024
-Spec fPL,0.8,4/26/2024,chemistry,6/11/2024
-Cardiopet proBNP (Feline),831,4/26/2024,chemistry,6/11/2024
+RBC,5.27,2024-05-10,hematology,2024-07-12
+Hematocrit,24.9,2024-05-10,hematology,2024-07-12
+Hemoglobin,8.3,2024-05-10,hematology,2024-07-12
+MCV,47.2,2024-05-10,hematology,2024-07-12
+MCH,15.7,2024-05-10,hematology,2024-07-12
+MCHC,33.3,2024-05-10,hematology,2024-07-12
+RDW,17.9,2024-05-10,hematology,2024-07-12
+% Reticulocytes,0.1,2024-05-10,hematology,2024-07-12
+Reticulocytes,6.9,2024-05-10,hematology,2024-07-12
+Reticulocyte,15.5,2024-05-10,hematology,2024-07-12
+WBC,13.01,2024-05-10,hematology,2024-07-12
+% Neutrophils,87,2024-05-10,hematology,2024-07-12
+% Lymphocytes,8.5,2024-05-10,hematology,2024-07-12
+% Monocytes,4.2,2024-05-10,hematology,2024-07-12
+% Eosinophils,0.3,2024-05-10,hematology,2024-07-12
+% Basophils,0,2024-05-10,hematology,2024-07-12
+Neutrophils,11.33,2024-05-10,hematology,2024-07-12
+Lymphocytes,1.1,2024-05-10,hematology,2024-07-12
+Monocytes,0.54,2024-05-10,hematology,2024-07-12
+Eosinophils,0.04,2024-05-10,hematology,2024-07-12
+Basophils,0,2024-05-10,hematology,2024-07-12
+Platelets,194,2024-05-10,hematology,2024-07-12
+MPV,17.9,2024-05-10,hematology,2024-07-12
+Plateletcrit,0.35,2024-05-10,hematology,2024-07-12
+Glucose,131,2024-05-10,chemistry,2024-07-12
+Creatinine,0.9,2024-05-10,chemistry,2024-07-12
+BUN,16,2024-05-10,chemistry,2024-07-12
+BUN: Creatinine Ratio,18,2024-05-10,chemistry,2024-07-12
+Total Protein,7.2,2024-05-10,chemistry,2024-07-12
+Albumin,2.4,2024-05-10,chemistry,2024-07-12
+Globulin,4.8,2024-05-10,chemistry,2024-07-12
+Albumin: Globulin Ratio,0.5,2024-05-10,chemistry,2024-07-12
+ALT,75,2024-05-10,chemistry,2024-07-12
+ALP,62,2024-05-10,chemistry,2024-07-12
+RBC,7.44,2024-06-08,hematology,2024-07-12
+Hematocrit,35.1,2024-06-08,hematology,2024-07-12
+Hemoglobin,11.4,2024-06-08,hematology,2024-07-12
+MCV,47,2024-06-08,hematology,2024-07-12
+MCH,15.3,2024-06-08,hematology,2024-07-12
+MCHC,32.5,2024-06-08,hematology,2024-07-12
+% Reticulocytes,0.1,2024-06-08,hematology,2024-07-12
+Reticulocytes,7,2024-06-08,hematology,2024-07-12
+Reticulocyte Hemoglobin,15.6,2024-06-08,hematology,2024-07-12
+WBC,16.5,2024-06-08,hematology,2024-07-12
+% Neutrophils,65.7,2024-06-08,hematology,2024-07-12
+% Lymphocytes,24,2024-06-08,hematology,2024-07-12
+% Monocytes,2.5,2024-06-08,hematology,2024-07-12
+% Eosinophils,6.8,2024-06-08,hematology,2024-07-12
+% Basophils,1,2024-06-08,hematology,2024-07-12
+Neutrophils,10.841,2024-06-08,hematology,2024-07-12
+Lymphocytes,3.96,2024-06-08,hematology,2024-07-12
+Monocytes,0.413,2024-06-08,hematology,2024-07-12
+Eosinophils,1.122,2024-06-08,hematology,2024-07-12
+Basophils,0.165,2024-06-08,hematology,2024-07-12
+Platelets,90,2024-06-08,hematology,2024-07-12
+Glucose,92,2024-06-08,chemistry,2024-07-12
+IDEXX SDMA,9,2024-06-08,chemistry,2024-07-12
+Creatinine,1.2,2024-06-08,chemistry,2024-07-12
+BUN,22,2024-06-08,chemistry,2024-07-12
+BUN: Creatinine Ratio,18.3,2024-06-08,chemistry,2024-07-12
+Sodium,150,2024-06-08,chemistry,2024-07-12
+Potassium,4.6,2024-06-08,chemistry,2024-07-12
+Na: K Ratio,33,2024-06-08,chemistry,2024-07-12
+Chloride,117,2024-06-08,chemistry,2024-07-12
+Total Protein,7.4,2024-06-08,chemistry,2024-07-12
+Albumin,2.5,2024-06-08,chemistry,2024-07-12
+Globulin,4.9,2024-06-08,chemistry,2024-07-12
+Albumin: Globulin Ratio,0.5,2024-06-08,chemistry,2024-07-12
+ALT,80,2024-06-08,chemistry,2024-07-12
+ALP,38,2024-06-08,chemistry,2024-07-12
+"b   Index of N,",1,2024-06-08,chemistry,2024-07-12
+"c   Index of N,",1,2024-06-08,chemistry,2024-07-12
+RBC,6.75,2024-04-26,hematology,2024-07-12
+Hematocrit,32,2024-04-26,hematology,2024-07-12
+Hemoglobin,10.9,2024-04-26,hematology,2024-07-12
+MCV,47,2024-04-26,hematology,2024-07-12
+MCH,16.1,2024-04-26,hematology,2024-07-12
+MCHC,34.1,2024-04-26,hematology,2024-07-12
+% Reticulocytes,0.1,2024-04-26,hematology,2024-07-12
+Reticulocytes,7,2024-04-26,hematology,2024-07-12
+Reticulocyte Hemoglobin,16.5,2024-04-26,hematology,2024-07-12
+WBC,14.2,2024-04-26,hematology,2024-07-12
+% Neutrophils,83.4,2024-04-26,hematology,2024-07-12
+% Lymphocytes,12.6,2024-04-26,hematology,2024-07-12
+% Monocytes,2.1,2024-04-26,hematology,2024-07-12
+% Eosinophils,1.8,2024-04-26,hematology,2024-07-12
+% Basophils,0.1,2024-04-26,hematology,2024-07-12
+Neutrophils,11.843,2024-04-26,hematology,2024-07-12
+Lymphocytes,1.789,2024-04-26,hematology,2024-07-12
+Monocytes,0.298,2024-04-26,hematology,2024-07-12
+Eosinophils,0.256,2024-04-26,hematology,2024-07-12
+Basophils,0.014,2024-04-26,hematology,2024-07-12
+Platelets,95,2024-04-26,hematology,2024-07-12
+Glucose,71,2024-04-26,chemistry,2024-07-12
+IDEXX SDMA,9,2024-04-26,chemistry,2024-07-12
+Creatinine,1.1,2024-04-26,chemistry,2024-07-12
+BUN,17,2024-04-26,chemistry,2024-07-12
+BUN: Creatinine Ratio,15.5,2024-04-26,chemistry,2024-07-12
+Phosphorus,4,2024-04-26,chemistry,2024-07-12
+Calcium,8.1,2024-04-26,chemistry,2024-07-12
+Sodium,148,2024-04-26,chemistry,2024-07-12
+Potassium,4.2,2024-04-26,chemistry,2024-07-12
+Na: K Ratio,35,2024-04-26,chemistry,2024-07-12
+Chloride,118,2024-04-26,chemistry,2024-07-12
+TCO2 (Bicarbonate),21,2024-04-26,chemistry,2024-07-12
+Anion Gap,13,2024-04-26,chemistry,2024-07-12
+Total Protein,8.5,2024-04-26,chemistry,2024-07-12
+Albumin,2,2024-04-26,chemistry,2024-07-12
+Globulin,6.5,2024-04-26,chemistry,2024-07-12
+Albumin: Globulin Ratio,0.3,2024-04-26,chemistry,2024-07-12
+ALT,61,2024-04-26,chemistry,2024-07-12
+AST,79,2024-04-26,chemistry,2024-07-12
+ALP,23,2024-04-26,chemistry,2024-07-12
+GGT,1,2024-04-26,chemistry,2024-07-12
+Bilirubin - Total,0.2,2024-04-26,chemistry,2024-07-12
+Bilirubin - Unconjugated,0.1,2024-04-26,chemistry,2024-07-12
+Bilirubin - Conjugated,0.1,2024-04-26,chemistry,2024-07-12
+Cholesterol,125,2024-04-26,chemistry,2024-07-12
+Creatine Kinase,1244,2024-04-26,chemistry,2024-07-12
+Hemolysis Index,,2024-04-26,chemistry,2024-07-12
+Lipemia Index,,2024-04-26,chemistry,2024-07-12
+Spec fPL,0.8,2024-04-26,chemistry,2024-07-12
+Cardiopet proBNP (Feline),831,2024-04-26,chemistry,2024-07-12
+RBC,9.22,2024-07-09,hematology,2024-07-12
+Hematocrit,43.5,2024-07-09,hematology,2024-07-12
+Hemoglobin,13.4,2024-07-09,hematology,2024-07-12
+MCV,47,2024-07-09,hematology,2024-07-12
+MCH,14.5,2024-07-09,hematology,2024-07-12
+MCHC,30.8,2024-07-09,hematology,2024-07-12
+% Reticulocytes,0.2,2024-07-09,hematology,2024-07-12
+Reticulocytes,18,2024-07-09,hematology,2024-07-12
+Reticulocyte,16.3,2024-07-09,hematology,2024-07-12
+WBC,18.4,2024-07-09,hematology,2024-07-12
+% Neutrophils,71,2024-07-09,hematology,2024-07-12
+% Lymphocytes,23,2024-07-09,hematology,2024-07-12
+% Monocytes,2,2024-07-09,hematology,2024-07-12
+% Eosinophils,4,2024-07-09,hematology,2024-07-12
+% Basophils,0,2024-07-09,hematology,2024-07-12
+Neutrophils,13.064,2024-07-09,hematology,2024-07-12
+Lymphocytes,4.232,2024-07-09,hematology,2024-07-12
+Monocytes,0.368,2024-07-09,hematology,2024-07-12
+Eosinophils,0.736,2024-07-09,hematology,2024-07-12
+Basophils,0,2024-07-09,hematology,2024-07-12
+Platelets,180,2024-07-09,hematology,2024-07-12
+Glucose,82,2024-07-09,chemistry,2024-07-12
+IDEXX SDMA,10,2024-07-09,chemistry,2024-07-12
+Creatinine,1.6,2024-07-09,chemistry,2024-07-12
+BUN,29,2024-07-09,chemistry,2024-07-12
+BUN: Creatinine Ratio,18.1,2024-07-09,chemistry,2024-07-12
+Total Protein,7.2,2024-07-09,chemistry,2024-07-12
+Albumin,2.5,2024-07-09,chemistry,2024-07-12
+Globulin,4.7,2024-07-09,chemistry,2024-07-12
+Albumin: Globulin Ratio,0.5,2024-07-09,chemistry,2024-07-12
+ALT,40,2024-07-09,chemistry,2024-07-12
+ALP,28,2024-07-09,chemistry,2024-07-12
