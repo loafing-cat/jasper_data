@@ -34,6 +34,7 @@ p1 <- ggplot(joined_data, aes(x = metric, y = norm_value, color = as.factor(obse
   geom_errorbar(aes(ymin = norm_min_ref, ymax = norm_max_ref), color = "black", width = 0.2) +
   geom_point(aes(shape = as.factor(observation)), size = 4) +  # Increased size for better visibility
   scale_color_lancet() +
+  scale_shape_manual(values = c(16, 17, 18, 15)) +
   labs(title = "Normalized Biomarkers",
        x = "",
        y = "Normalized Value",
