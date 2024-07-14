@@ -28,12 +28,18 @@ daily_weight <- read_sheet(
   sheet = "Daily Weight"
 )
 
+# daily_weight2 <- daily_weight %>% 
+#   arrange(Day) %>% 
+#   mutate(
+#     row_number = row_number(),
+#     week = ((row_number - 1) %/% 7) + 1
+#   )
 
 # data prep ---------------------------------------------------------------
 
 # extract last day for each week
 weeks <- daily_weight %>% 
-  group_by(Week) %>% 
+  group_by(Week) %>%
   arrange(desc(Day)) %>% 
   slice(1) %>% 
   mutate(Day = as.Date(Day)) %>% 
@@ -43,18 +49,33 @@ weeks <- daily_weight %>%
 daily_weight$Day <- as.Date(daily_weight$Day)
 
 # compute week numbers with `lubridate::week` and adjust to start from May 6th, 2024
-baseline_data <- as.Date("2024-05-06")
+# baseline_data <- as.Date("2024-05-06")
+
+start_date <- as.Date("2024-05-01")
 
 # week numbers used to track Jasper's weight throughout the 84 (12-week) GS-441524 protocol
 daily_weight <- daily_weight %>% 
-  mutate(week = (week(Day) - week(baseline_data) + 1),
+  arrange(Day) %>% 
+  mutate(week = Week,
+    # row_number = row_number(),
+    # week = ((row_number - 1) %/% 7) + 1,
          is_week_max_date = case_when(
            Day %in% weeks$Day ~ "Y",
            TRUE ~ "N"
          ))
 
+temp <- daily_weight %>%
+  arrange(Day) %>%
+  mutate(rnk = row_number(),
+         rnk2 = dense_rank(Day)) %>% 
+  group_by(rnk2) %>% 
+  summarize(count = n()) %>% 
+  filter(count > 1)
+
+# export(daily_weight, here("output data", "weeks.csv"))
+
 # correct weeks for dates before the baseline (i.e., week = 0 prior to May 6th, 2024); using base R
-daily_weight$week[daily_weight$Day < baseline_data] <- 0
+# daily_weight$week[daily_weight$Day < baseline_data] <- 0
 
 ### plot time-series of weekly weights; require week to have complete data i.e., not in-progress weeks are plotted
 
@@ -164,7 +185,7 @@ p2 <- daily_weight %>%
   theme_clean() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),legend.position = "none")
 
-  p2
+p2
 
 
 # dynamically save ggplot
@@ -355,3 +376,4 @@ source(here("scripts", "update_images_readme.R"))
 
 # update root README file
 source(here("scripts", "update_root_readme.R"))
+
