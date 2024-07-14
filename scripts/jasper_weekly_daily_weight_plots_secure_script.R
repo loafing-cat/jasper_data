@@ -151,7 +151,7 @@ ggsave(
 
 # time-series of daily weights
 p2 <- daily_weight %>% 
-  filter(Day > as.Date('2024-05-05') & !is.na(`Weight (lbs)`)) %>% # filter after May 5th, 2024 and exclude NAs
+  filter(!is.na(`Weight (lbs)`)) %>% # filter after May 5th, 2024 and exclude NAs
   ggplot(aes(x = Day, y = `Weight (lbs)`)) +
   geom_hline(aes(yintercept = 11), color = "red", linetype = "dashed", size = 1.5) +
   geom_hline(aes(yintercept = (11 + 12) / 2), color = "orange", linetype = "dashed", size = 1.5) + # healthy weight between [11.25, 12] (lbs) add average of two intervals as reference line
@@ -163,12 +163,12 @@ p2 <- daily_weight %>%
   geom_line(aes(y = rollmean(`Weight (lbs)`, 7, na.pad = TRUE)), color = "blue", linetype = "dashed", size = 0.7) +
   geom_point(aes(color = factor(is_week_max_date)), size = 2) +
   geom_text(data = subset(daily_weight, Day == as.Date("2024-05-12")), 
-            aes(label = "Red dots indicates end of week", x = Day - 3, y = `Weight (lbs)` + 0.5), size = 3, vjust = 0) +
-  geom_segment(data = subset(daily_weight, Day == as.Date("2024-05-12")), 
-               aes(xend = Day - 1, yend = `Weight (lbs)`, x = Day - 4, y = `Weight (lbs)` + 0.4),
+            aes(label = "Red dots indicates end of week", x = Day - 3, y = `Weight (lbs)` + 0.5), size = 2.5, vjust = 0) +
+  geom_segment(data = subset(daily_weight, Day == as.Date("2024-05-07")), 
+               aes(xend = Day, yend = `Weight (lbs)`, x = Day, y = `Weight (lbs)` + 0.8),
                arrow = arrow(type = "closed", length = unit(0.1, "inches"), ends = "last"), color = "black") +
   geom_text(data = subset(daily_weight, Day == as.Date("2024-05-20")),
-            aes(label = "Period of stinky diarrheas due to antiviral :(", x = Day,  y = 10.65), size = 3, vjust = 0) +
+            aes(label = "Period of stinky diarrheas due to antiviral :(", x = Day,  y = 10.65), size = 2.5, vjust = 0) +
   geom_segment(data = subset(daily_weight, Day == as.Date("2024-05-20")),
                aes(xend = Day, yend = `Weight (lbs)` + 0.50, x = Day, y = 10.55),
                arrow = arrow(type = "closed", length = unit(0.1, "inches"), ends = "last"), color = "black") +
