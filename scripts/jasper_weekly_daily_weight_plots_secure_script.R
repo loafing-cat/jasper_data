@@ -307,7 +307,7 @@ ggsave(
   filename = paste0(here("images", "violin", "jasper_mean_weight_violin_weekly_time_series"), format(Sys.Date(), "_%Y_%m_%d"), ".png"),
   plot = p3,
   dpi = 600,
-  width = 14,
+  width = 16,
   height = 8
 )
 
