@@ -201,7 +201,8 @@ ggsave(
 npg_palette_alpha_0.7 <- c("#E64B35B2", "#4DBBD5B2", "#00A087B2", "#3C5488B2", "#F39B7FB2", "#8491B4B2", "#91D1C2B2", "#DC0000B2", "#7E6148B2")
 npg_palette_alpha_1 <-  c("#E64B35FF", "#4DBBD5FF", "#00A087FF", "#3C5488FF", "#F39B7FFF", "#8491B4FF", "#91D1C2FF", "#DC0000FF", "#7E6148FF")
 
-custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#7fc8ff", "#8491B4B2","#d3860e", "#ffd145", "#A9C1A8", "#E0218A", "#ffbe79","#ff8c87","#91D1C2FF")
+
+custom_colors <- c("#F39B7FFF", "#4DBBD5FF", "#91D1C2FF", "#7fc8ff", "#8491B4B2","#d3860e", "#ffd145", "#A9C1A8", "#E0218A", "#ffbe79","#ff8c87","#FFF68F", "#4575F3")
 
 
 ###
